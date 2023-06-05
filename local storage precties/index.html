@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Document</title>
+</head>
+<body>
+    <h1></h1>
+</body>
+<script>
+    let name ='vivek';
+    localStorage.setItem('name',name)
+    let lsdata = localStorage.getItem('name');
+    let age = 34;
+    localStorage.setItem('age',age)
+    //select the teg and put value;
+    document.querySelector('h1').textContent=lsdata
+    // ok we will try to store array in local storage
+    let arr = [1,2,3,4,'vivek','rohan'];
+   // console.log(arr) //this show on console
+localStorage.setItem('arr',arr)
+let arrls = localStorage.getItem('arr')
+//console.log(arrls)
+// when we will store value in local store the store onle string
+// if we want to store in actual array we neet Json.stringify
+localStorage.setItem('newArr',JSON.stringify(arr))
+let NewArrls=localStorage.getItem('newArr')
+console.log(NewArrls)
+    // in order to get original array or object
+    //we neet to JSON.parse(localStorage.getItem('key name'))
+    let lsNewArr= JSON.parse(localStorage.getItem('newArr'))
+    console.log(lsNewArr)
+    //if i want to remove one item like name = vivek
+    localStorage.removeItem('name')
+    // if we want to remove everything with using clear
+    localStorage.clear()
+</script>
+</html>
